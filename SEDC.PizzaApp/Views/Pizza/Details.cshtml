@@ -1,0 +1,18 @@
+﻿
+@model PizzaViewModel
+
+
+<partial name="~/Views/Shared/Partials/_PizzaGreeting.cshtml"/>
+
+
+
+<p>Name of the pizza: @Model.Name</p> 
+<p>Pizza price: @Model.Price</p>
+@if(Model.IsOnPromotion){
+    <h4>This pizza is on promotion!</h4>
+}
+else{
+    <h4>This pizza is not on promotion!</h4>
+}
+
+<partial name="~/Views/Shared/Partials/_DetailsPizzaPartial.cshtml"/>

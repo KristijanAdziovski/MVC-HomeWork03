@@ -1,0 +1,40 @@
+﻿
+
+
+@model OrderDetailsViewModel
+
+<h1>@ViewBag.Title</h1>
+
+<h3>The order was made by user with phone number @ViewBag.User.PhoneNumber</h3>
+
+<p>@Model.UserFullname ordered @Model.PizzaName. @Model.UserFullname paid @Model.Price by @Model.PaymentMethod.</p>
+
+
+<p>@($"The order was made by the user {Model.UserFullname}")</p>
+<p>The new price: @(Model.Price - Model.Price*0.1)</p>
+
+
+
+@{
+    string deliveredMessage = "";
+    if(Model.Delivered)
+    {
+        deliveredMessage = "The order was delivered.";
+    }
+    else
+    {
+        deliveredMessage = "The order was not yet delivered.";
+    }
+
+    Model.Price += 100;
+}
+
+<p>@deliveredMessage</p>
+
+
+@if(Model.Delivered){
+    <h3>Delivered!</h3>
+}
+else{
+    <h3>Not delivered!</h3>
+}
